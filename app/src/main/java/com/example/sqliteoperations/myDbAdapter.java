@@ -1,5 +1,6 @@
 package com.example.sqliteoperations;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -32,9 +33,9 @@ public class myDbAdapter {
         StringBuffer buffer= new StringBuffer();
         while (cursor.moveToNext())
         {
-            int cid =cursor.getInt(cursor.getColumnIndex(myDbHelper.UID));
-            String name =cursor.getString(cursor.getColumnIndex(myDbHelper.NAME));
-            String  password =cursor.getString(cursor.getColumnIndex(myDbHelper.MyPASSWORD));
+            @SuppressLint("Range") int cid =cursor.getInt(cursor.getColumnIndex(myDbHelper.UID));
+            @SuppressLint("Range") String name =cursor.getString(cursor.getColumnIndex(myDbHelper.NAME));
+            @SuppressLint("Range") String  password =cursor.getString(cursor.getColumnIndex(myDbHelper.MyPASSWORD));
             buffer.append(cid+ "   " + name + "   " + password +" \n");
         }
         return buffer.toString();
